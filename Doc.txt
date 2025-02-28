@@ -1,0 +1,15 @@
+Tento projekt vznikl za cilem usnadnit generaci tabulatury pro kytaristy, kteri vyuzivaji atypicka lazeni kytary ci kytary s rozsirenou menzurou (tzv baritonove). Projekt zacal hledanim spravne struktury. Po prohledani soucasneho sveta prevodu analogoveho kytaroveho signalu do tabulatury bylo zjisteno, ze nema prilis mnoho otevreneho software, ktery by byl vhodny k uprave. Rozhodl jsem se tedy praci rozdelit na podproblemy. Rozhodle jsem se jit cestou oddeleni prevodu signalu na notaci v midi a nasledne prevedeni midi na tabulaturu podle patternu 
+
+Basic-pitch - pretty bad but playable.
+Neural-Note  - better, but uses basic-pitch.
+Tensor-flow - problemy se setupem bo cuda.
+zkouset nejak zjistit timbre kvuli strunam??? dalsi model???
+
+
+Soucasna predikovana cesta pro upravu basic-pitch: tab -> midi -> synth -> tensorflow -> dataset ->
+					 			\> tensorflow	      /
+									      basic-pitch model /
+
+pipeline rn: signal -> upraveny basic-pitch -> midi -> ??? -> taby
+
+napsal jsem Solemn Tones ohledne ODIN 3 bo giga moc samplu - odepsali, pozitivni, kdyby gut muzeme udelat produkt

@@ -1,0 +1,74 @@
+Slide 1: Úvod
+"Dobrý den, kolegové, kolegyně a vážená komise.  
+Jmenuji se Tobiáš Adamčík a dnes vám představím současný stav své bakalářské práce na téma **automatická generace kytarových tabulatur se zaměřením na nižší ladění**.
+
+---
+
+Slide 2: Motivace
+
+"Nejprve bych rád vysvětlil, co to vlastně jsou tabulatury.  
+Tabulatura, nebo zkráceně taby, je alternativní způsob notace pro strunné nástroje, který neukazuje přímo noty, ale říká, které pražce na jakých strunách zahrát.  
+
+Jako kytarista velmi oceňuji tabulatury vytvořené jinými hudebníky. Díky nim lépe pochopím skladby, které poslouchám, a mohu je snadněji zahrát.  
+
+Jejich ruční tvorba je však zdlouhavá a náročná. Navíc většina stávajících nástrojů pro automatickou generaci tabulatur je zaměřena na standardní ladění.  
+
+Protože poslouchám hlavně tvrdší hudební žánry, kde se často používají podladěné kytary, považuji za důležité vytvořit nástroj, který tento proces usnadní i pro alternativní ladění. Tím bych chtěl přispět hudebníkům a tvůrcům coverů v těchto žánrech." 
+Také bych se rád více vzdělal v oblasti strojového učení. 
+
+---
+
+Slide 3: Cíle práce
+
+"Cílem mé práce je vytvořit nástroj, který dokáže ze zvukové nahrávky kytary v různých laděních automaticky a přesně vygenerovat odpovídající tabulaturu. Tímto bych rád usnadnil tvorbu notace hudebníkům, a to především ve sféře tvrdší hudby."  
+
+---
+
+Slide 4: Podstatné informace o řešení
+
+"Pro řešení jsem zvažoval dva různé přístupy.  
+
+Nejprve ale krátce o MIDI. MIDI je počítačový protokol, který uchovává informace o notách, dynamice a dalších vlastnostech, ale neobsahuje samotný zvuk.  
+
+První přístup spočíval v tom, že bych nejprve převedl zvukový signál na MIDI a poté z MIDI na tabulaturu. Pro převod zvuku na MIDI jsem zvolil nástroj **Basic Pitch** od Spotify Research. Tento nástroj není vázán na konkrétní nástroj, což je výhodné pro různé ladění kytar.  
+
+Narazil jsem však na problém – převodem na MIDI se ztrácí informace o barvě tónu, což znamená, že výsledná tabulatura by často nebyla přesná."  
+
+---
+
+Slide 5: Přístup s TabCNN
+
+"Po dalších analýzách jsem zvolil jiný přístup: převod zvukového signálu přímo na tabulaturu pomocí nástroje **TabCNN**.  
+
+TabCNN je považován za benchmark pro automatickou generaci tabulatur, ale zatím funguje pouze pro standardní ladění. Proto bude nutné model upravit a přetrénovat, aby zvládal i alternativní ladění."  
+
+---
+
+Slide 6: Výzvy a dataset
+
+"Jedním z hlavních problémů byl nedostatek vhodných datasetů pro trénink modelu, zejména pro nižší ladění.  
+
+Vytvoření datasetu ručně by bylo velmi časově náročné, a proto jsem se inspiroval projektem **SynthTab**, který využívá virtuální nástroje.  
+
+Pro svůj dataset jsem zvolil virtuální kytaru **ODIN III** od firmy Solemn Tones. Tento nástroj obsahuje samply osmi-strunné kytary ve více laděních, což umožňuje generovat data efektivněji.  
+
+Pipeline pro tvorbu datasetu vypadá takto:  
+1. Z tabulatury se vytvoří JAMS soubor, který uchovává informace o strunách, prstokladech a technikách hry.  
+2. Tento soubor se zakóduje do MIDI s daty specifickými pro ODIN III, včetně technik jako palm-muting nebo pinch harmonics.  
+3. MIDI soubor se následně syntetizuje, čímž vznikne pár MIDI a JAMS souborů, které použiji pro trénink modelu."  
+ 
+---
+
+Slide 7: Práce za uplynulý semestr
+
+"V průběhu tohoto semestru jsem:  
+- Nastudoval problematiku automatické generace tabulatur.  
+- Testoval stávající řešení na vlastních kytarách, abych identifikoval jejich výhody a slabiny.  
+- Navrhl a zpracoval pipeline pro tvorbu datasetu, která je nyní těměř hotová."  
+
+---
+
+Slide 8: Plány na příští semestr
+
+"V příštím semestru se plánuji zaměřit na následují
+

@@ -1,0 +1,17 @@
+{
+    "sustain": 24,
+    "harmonic": 23,
+    "palm_mute": 16,
+    "slide_in_out": 27,
+    "legato_slide": 28,
+    "hammer_on_pull_off": 14,
+    "slide_guitar": 7,
+    "string_1" : 108,
+    "string_2" : 107,
+    "string_3" : 106,
+    "string_4" : 105,
+    "string_5" : 104,
+    "string_6" : 103,
+    "string_7" : 102,
+    "string_8" : 101
+}
